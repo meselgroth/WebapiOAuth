@@ -4,16 +4,24 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebapiOAuth.Repositories;
 
 namespace WebapiOAuth.Controllers
 {
     //[Authorize]
     public class ValuesController : ApiController
     {
+        ITempRepository _tempRepository;
+
+        public ValuesController(ITempRepository tempRepository)
+        {
+            _tempRepository = tempRepository;
+        }
+
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _tempRepository.GetAll();
         }
 
         // GET api/values/5

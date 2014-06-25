@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 using System.Web.Http;
+using Ninject.Web.WebApi.OwinHost;
 
 [assembly: OwinStartup(typeof(WebapiOAuth.Startup))]
 
@@ -14,8 +15,11 @@ namespace WebapiOAuth
         public void Configuration(IAppBuilder app)
         {
             var config = new HttpConfiguration();
-            WebApiConfig.Register(config);
 
+            config.DependencyResolver = new OwinNinjectDependencyResolver(NinjectConfig.CreateKernel());
+ 
+
+            WebApiConfig.Register(config);
             app.UseWebApi(config);
 
             ConfigureAuth(app);
