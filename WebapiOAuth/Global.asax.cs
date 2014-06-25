@@ -13,11 +13,10 @@ namespace WebapiOAuth
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //AreaRegistration.RegisterAllAreas();
+            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            //RouteConfig.RegisterRoutes(RouteTable.Routes);
+            //BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }
